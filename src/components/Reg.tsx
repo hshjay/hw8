@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 interface Props {
   onUserAdd: (name: string, birth: string) => void;
@@ -19,14 +19,32 @@ export default function Reg(props: Props) {
   const onClickButton = () => {
     props.onUserAdd(name, birth);
   };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.dir(e);
+    props.onUserAdd(name, birth);
+  };
+
+  // const formData = document.querySelector("#regUser");
+  // formData?.addEventListener("submit", handleSubmit);
+
   return (
     // <form onSubmit={props.onUserAdd}>
-    <div>
+    // <div>
+    <form id="regUser" onSubmit={handleSubmit}>
       <input type="text" id="name" placeholder="이름" onChange={onChangeName} />
+      {/* <input
+        type="text"
+        id="name2"
+        placeholder="이름2"
+        onChange={onChangeName}
+      /> */}
       <input type="date" name="birth" id="birth" onChange={onChangeBirth} />
       {/* <input type="submit" value="입력" /> */}
-      <button onClick={onClickButton}>입력</button>
-    </div>
-    // </form>
+      <button>입력</button>
+      {/* </div> */}
+      {/* // </form> */}
+    </form>
   );
 }
