@@ -6,7 +6,13 @@ interface User {
   birth: string;
 }
 interface Props {
-  onClickAdd: (name: string, dt: string, h8: string, w8: string) => void;
+  onClickAdd: (
+    name: string,
+    dt: string,
+    h8: string,
+    w8: string,
+    userId: number
+  ) => void;
   user: User[];
   //   id: number;
   //   name: string[];
@@ -27,13 +33,15 @@ export default function Editor(props: Props) {
   const [dt, setDt] = useState(yymmdd);
   const [h8, setH8] = useState("");
   const [w8, setW8] = useState("");
+  const [userId, setUserId] = useState(0);
 
   //   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
   //     setName(e.target.value);
   //   };
   const onChangeName = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setName(e.target.value);
-    console.log(e.target);
+    setUserId(props.user.filter((f) => f.name == e.target.value)[0].id);
+    // setUserId(e.target.id);
   };
   const onChangeDt = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDt(e.target.value);
@@ -46,9 +54,13 @@ export default function Editor(props: Props) {
     setW8(e.target.value);
   };
   const onClickBtn = () => {
-    console.log(`이름:${name} 날짜:${dt} \n키:${h8}, 몸무게:${w8}`);
+    // let userId = props.user[0].id;
+    // let userId = props.user[0].id;
+    console.log(
+      `이름:${name} 날짜:${dt} \n키:${h8}, 몸무게:${w8}, userId:${userId}`
+    );
     // setStore([...store, { name: name, dt: dt, h8: h8, w8: w8 }]);
-    props.onClickAdd(name, dt, h8, w8);
+    props.onClickAdd(name, dt, h8, w8, userId);
     setH8("");
     setW8("");
     (document.querySelector("#nameSel") as HTMLInputElement).focus();
