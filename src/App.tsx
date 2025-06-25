@@ -159,6 +159,14 @@ function App() {
       <h2>입력</h2>
       <Editor onClickAdd={onClickAdd} user={user}></Editor>
       <div>
+        <div className="container">
+          <div className="item">No.</div>
+          <div className="item">이름</div>
+          <div className="item">날짜</div>
+          <div className="item">키</div>
+          <div className="item">몸무게</div>
+          <div className="item">비고</div>
+        </div>
         {store.map((item) => (
           <Items key={item.id} {...item} />
         ))}

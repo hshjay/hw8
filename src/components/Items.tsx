@@ -9,13 +9,16 @@ interface Props {
 
 export default function Items(props: Props) {
   return (
-    <li>
-      {props.id}번 <div>이름: {props.name}</div>
-      <div>날짜: {props.dt}</div>
-      <div>키: {props.h8}</div>
-      <div>몸무게: {props.w8}</div>
-      <div>비고: {props.rmk}</div>
-      <div>------------------</div>
-    </li>
+    // <li>
+    <div className="container">
+      <div className="item">{props.id}</div>
+      <div className="item">{props.name}</div>
+      <div className="item">{props.dt}</div>
+      <div className="item">{props.h8}cm</div>
+      <div className="item">{props.w8}kg</div>
+      <div className="item">{props.rmk}</div>
+      {/* <div>------------------</div> */}
+    </div>
+    // </li>
   );
 }
