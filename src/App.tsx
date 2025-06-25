@@ -96,6 +96,9 @@ function App() {
         .catch((err) => {
           throw new Error(`에러: ${err.message}`);
         });
+      if (name === "") {
+        name = user[0].name;
+      }
       setStore([
         ...store,
         {

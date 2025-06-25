@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface User {
   id: number;
@@ -29,8 +29,18 @@ export default function Editor(props: Props) {
     .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`;
   // console.log(yymmdd);
   // const [dt, setDt] = useState(Date.now().toString());
-
+  // console.log(props.user);
   const [name, setName] = useState("");
+  // function al() {
+  //   // alert(props.user);
+  //   console.log(props.user);
+  // }
+  // useEffect(al, props.user);
+  // if (props.user.length !== 0) setName(props.user[0].name);
+  // if (props) {
+  //   setName(props.user[0].name);
+  // }
+  // const [name, setName] = useState(props.user[0].name);
   const [dt, setDt] = useState(yymmdd);
   const [h8, setH8] = useState("");
   const [w8, setW8] = useState("");
