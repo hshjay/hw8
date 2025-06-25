@@ -12,6 +12,7 @@ interface Store {
   h8: string;
   w8: string;
   userId: number;
+  rmk: string;
 }
 interface UserInfo {
   id: number;
@@ -63,6 +64,7 @@ function App() {
         h8: rowData[3],
         w8: rowData[4],
         userId: rowData[1],
+        rmk: rowData[5],
       }));
     // idRef.current = dataList.length;
     if (dataList.length > 0)
@@ -76,12 +78,13 @@ function App() {
     dt: string,
     h8: string,
     w8: string,
-    userId: number
+    userId: number,
+    rmk: string
   ) => {
     // console.log(`날짜:${dt} \n키:${h8}, 몸무게:${w8}`);
     try {
       const response = await fetch(
-        `${sUrl}?type=data&id=${idRef.current}&userId=${userId}&name=${name}&dt=${dt}&h8=${h8}&w8=${w8}`
+        `${sUrl}?type=data&id=${idRef.current}&userId=${userId}&name=${name}&dt=${dt}&h8=${h8}&w8=${w8}&rmk=${rmk}`
       )
         .then((res) => {
           if (!res.ok) {
@@ -102,6 +105,7 @@ function App() {
           h8: h8,
           w8: w8,
           userId: userId,
+          rmk: rmk,
         },
       ]);
     } catch (error) {

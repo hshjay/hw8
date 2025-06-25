@@ -11,7 +11,8 @@ interface Props {
     dt: string,
     h8: string,
     w8: string,
-    userId: number
+    userId: number,
+    rmk: string
   ) => void;
   user: User[];
   //   id: number;
@@ -34,6 +35,7 @@ export default function Editor(props: Props) {
   const [h8, setH8] = useState("");
   const [w8, setW8] = useState("");
   const [userId, setUserId] = useState(0);
+  const [rmk, setRmk] = useState("");
 
   //   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
   //     setName(e.target.value);
@@ -53,16 +55,20 @@ export default function Editor(props: Props) {
   const onChangeW8 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setW8(e.target.value);
   };
+  const onChangeRmk = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRmk(e.target.value);
+  };
   const onClickBtn = () => {
     // let userId = props.user[0].id;
     // let userId = props.user[0].id;
     console.log(
-      `이름:${name} 날짜:${dt} \n키:${h8}, 몸무게:${w8}, userId:${userId}`
+      `이름:${name} 날짜:${dt} \n키:${h8}, 몸무게:${w8}, userId:${userId}, rmk:${rmk}`
     );
     // setStore([...store, { name: name, dt: dt, h8: h8, w8: w8 }]);
-    props.onClickAdd(name, dt, h8, w8, userId);
+    props.onClickAdd(name, dt, h8, w8, userId, rmk);
     setH8("");
     setW8("");
+    setRmk("");
     (document.querySelector("#nameSel") as HTMLInputElement).focus();
   };
 
@@ -93,7 +99,7 @@ export default function Editor(props: Props) {
         onChange={onChangeH8}
         placeholder="키"
       />
-      <br />
+      {/* <br /> */}
       {/* <label htmlFor="w8">몸무게</label> */}
       <input
         type="text"
@@ -101,6 +107,14 @@ export default function Editor(props: Props) {
         value={w8}
         onChange={onChangeW8}
         placeholder="몸무게"
+      />
+      <br />
+      <input
+        type="text"
+        id="rmk"
+        value={rmk}
+        onChange={onChangeRmk}
+        placeholder="비고"
       />
       <button onClick={onClickBtn}>입력</button>
     </div>

@@ -4,6 +4,7 @@ interface Props {
   dt: string;
   h8: string;
   w8: string;
+  rmk: string;
 }
 
 export default function Items(props: Props) {
@@ -13,6 +14,7 @@ export default function Items(props: Props) {
       <div>날짜: {props.dt}</div>
       <div>키: {props.h8}</div>
       <div>몸무게: {props.w8}</div>
+      <div>비고: {props.rmk}</div>
       <div>------------------</div>
     </li>
   );
