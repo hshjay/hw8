@@ -1,3 +1,5 @@
+import { Fragment } from "react/jsx-runtime";
+
 interface Props {
   id: number;
   name: string;
@@ -10,7 +12,8 @@ interface Props {
 export default function Items(props: Props) {
   return (
     // <li>
-    <div className="container">
+    // <div className="container">
+    <Fragment>
       <div className="item">{props.id}</div>
       <div className="item">{props.name}</div>
       <div className="item">{props.dt}</div>
@@ -18,7 +21,8 @@ export default function Items(props: Props) {
       <div className="item">{props.w8}kg</div>
       <div className="item">{props.rmk}</div>
       {/* <div>------------------</div> */}
-    </div>
+    </Fragment>
+    // </div>
     // </li>
   );
 }

@@ -162,23 +162,51 @@ function App() {
       <h2>입력</h2>
       <Editor onClickAdd={onClickAdd} user={user}></Editor>
       <div>
-        <div className="container">
-          <div className="item">No.</div>
-          <div className="item">이름</div>
-          <div className="item">날짜</div>
-          <div className="item">키</div>
-          <div className="item">몸무게</div>
-          <div className="item">비고</div>
+        <div className="mainContainer">
+          <div className="scroll-box">
+            <div className="container">
+              <div className="header">No.</div>
+              <div className="header">이름</div>
+              <div className="header">날짜</div>
+              <div className="header">키</div>
+              <div className="header">몸무게</div>
+              <div className="header">비고</div>
+
+              {store
+                .filter((item) => item.userId == 0)
+                .map((item) => (
+                  <Items key={item.id} {...item} />
+                ))}
+            </div>
+          </div>
+          <div className="scroll-box">
+            <div className="container">
+              <div className="header">No.</div>
+              <div className="header">이름</div>
+              <div className="header">날짜</div>
+              <div className="header">키</div>
+              <div className="header">몸무게</div>
+              <div className="header">비고</div>
+
+              {store
+                .filter((item) => item.userId == 1)
+                .map((item) => (
+                  <Items key={item.id} {...item} />
+                ))}
+            </div>
+          </div>
         </div>
-        {store.map((item) => (
-          <Items key={item.id} {...item} />
-        ))}
       </div>
       <br />
       <br />
       <h2>사용자 등록</h2>
       <Reg onUserAdd={onUserAdd} />
       <div>
+        <div className="container2">
+          <div className="item">No.</div>
+          <div className="item">이름</div>
+          <div className="item">생일</div>
+        </div>
         {user.map((u) => (
           <Users key={u.id} {...u} />
         ))}
