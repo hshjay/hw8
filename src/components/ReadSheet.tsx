@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useSyncExternalStore } from "react";
+import React, {useEffect, useState} from "react";
+import "./ReadSheet.css";
 
 interface SheetData {
   sheet1: Array<any[]>;
@@ -33,15 +34,21 @@ function ReadSheet(props: Props) {
       });
   }, []);
   if (error) {
-    return <div>에러발생: {error}</div>;
+    return <div className="error-message">에러발생: {error}</div>;
   }
   if (!data) {
-    return <div>로딩 중...</div>;
+    return (
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <div className="loading-text">로딩 중...</div>
+        </div>
+    );
   }
   return (
-    <div>
-      완료.
-      {/* <h1>시트 데이터 가져오기</h1>
+      <div className="success-message">
+        <span className="checkmark">✓</span>
+        <span className="completion-text">완료</span>
+        {/* <h1>시트 데이터 가져오기</h1>
       <h2>Sheet1</h2>
       <pre>{JSON.stringify(data.sheet1, null, 2)}</pre>
       <h2>Sheet2</h2>

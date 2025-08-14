@@ -1,4 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
+import "./Items.css";
 
 interface Props {
   id: number;
@@ -11,18 +12,13 @@ interface Props {
 
 export default function Items(props: Props) {
   return (
-    // <li>
-    // <div className="container">
-    <Fragment>
-      <div className="item">{props.id}</div>
-      <div className="item">{props.name}</div>
-      <div className="item">{props.dt}</div>
-      <div className="item">{props.h8}cm</div>
-      <div className="item">{props.w8}kg</div>
-      <div className="item">{props.rmk}</div>
-      {/* <div>------------------</div> */}
-    </Fragment>
-    // </div>
-    // </li>
+      <Fragment>
+          <div className="item hover-effect">{String(props.id).padStart(2, '0')}</div>
+          <div className="item hover-effect name">{props.name}</div>
+          <div className="item hover-effect date">{props.dt}</div>
+          <div className="item hover-effect measurement">{props.h8}<span className="unit">cm</span></div>
+          <div className="item hover-effect measurement">{props.w8}<span className="unit">kg</span></div>
+          <div className="item hover-effect remark">{props.rmk}</div>
+      </Fragment>
   );
 }

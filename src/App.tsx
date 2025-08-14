@@ -158,8 +158,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>hw8</h1>
-      <h2>입력</h2>
+      <h1 className="app-title">hw8</h1>
+      <h2 className="section-title">입력</h2>
       <Editor onClickAdd={onClickAdd} user={user}></Editor>
       <div>
         <div className="mainContainer">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Editor.css";
 
 interface User {
   id: number;
@@ -83,7 +84,7 @@ export default function Editor(props: Props) {
   };
 
   return (
-    <div>
+      <div className="editor-form">
       {/* <input
         type="text"
         name="name"
@@ -91,42 +92,40 @@ export default function Editor(props: Props) {
         value={name}
         onChange={onChangeName}
       /> */}
-      <select name="select" id="nameSel" onChange={onChangeName}>
-        {props.user.map((u) => (
-          <option key={u.id} value={u.name}>
-            {u.name}
-          </option>
-        ))}
-      </select>
-      <br />
-      <input type="date" name="dt" id="dt" value={dt} onChange={onChangeDt} />
-      <br />
-      {/* <label htmlFor="h8">키</label> */}
+          <select name="select" id="nameSel" onChange={onChangeName} className="input-select">
+              {props.user.map((u) => (
+                  <option key={u.id} value={u.name}>
+                      {u.name}
+                  </option>
+              ))}
+          </select>
+          <input type="date" name="dt" id="dt" value={dt} onChange={onChangeDt} className="input-date"/>
+          {/* <label htmlFor="h8">키</label> */}
       <input
         type="text"
         id="h8"
         value={h8}
         onChange={onChangeH8}
         placeholder="키"
+        className="input-text"
       />
-      {/* <br /> */}
-      {/* <label htmlFor="w8">몸무게</label> */}
-      <input
-        type="text"
-        id="w8"
-        value={w8}
-        onChange={onChangeW8}
-        placeholder="몸무게"
-      />
-      <br />
-      <input
-        type="text"
-        id="rmk"
-        value={rmk}
-        onChange={onChangeRmk}
-        placeholder="비고"
-      />
-      <button onClick={onClickBtn}>입력</button>
-    </div>
+          <input
+              type="text"
+              id="w8"
+              value={w8}
+              onChange={onChangeW8}
+              placeholder="몸무게"
+              className="input-text"
+          />
+          <input
+              type="text"
+              id="rmk"
+              value={rmk}
+              onChange={onChangeRmk}
+              placeholder="비고"
+              className="input-text"
+          />
+          <button onClick={onClickBtn} className="submit-button">입력</button>
+      </div>
   );
 }
