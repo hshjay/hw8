@@ -162,7 +162,27 @@ function App() {
       <h2 className="section-title">입력</h2>
       <Editor onClickAdd={onClickAdd} user={user}></Editor>
       <div>
-        <div className="mainContainer">
+          <style>
+              {`
+            .mainContainer {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            }
+
+            .scroll-box {
+              flex: 1;
+              min-width: 300px;
+            }
+
+            @media (min-width: 900px) {
+              .mainContainer {
+                flex-direction: row;
+              }
+            }
+          `}
+          </style>
+          <div className="mainContainer">
           <div className="scroll-box">
             <div className="container">
               <div className="header">No.</div>
