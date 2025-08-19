@@ -23,7 +23,12 @@ export default function Reg(props: Props) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.dir(e);
+    // console.dir(e);
+    if (name === "" || birth === "") {
+        console.log("입력해야지!");
+        console.log(name, birth);
+        return;
+    }
     props.onUserAdd(name, birth);
   };
 
