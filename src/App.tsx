@@ -4,6 +4,7 @@ import Items from "./components/Items";
 import Reg from "./components/Reg";
 import Users from "./components/Users";
 import ReadSheet from "./components/ReadSheet";
+import './App.css';
 
 interface Store {
   id: number;
@@ -162,26 +163,6 @@ function App() {
       <h2 className="section-title">입력</h2>
       <Editor onClickAdd={onClickAdd} user={user}></Editor>
       <div>
-          <style>
-              {`
-            .mainContainer {
-              display: flex;
-              flex-direction: column;
-              gap: 20px;
-            }
-
-            .scroll-box {
-              flex: 1;
-              min-width: 300px;
-            }
-
-            @media (min-width: 900px) {
-              .mainContainer {
-                flex-direction: row;
-              }
-            }
-          `}
-          </style>
           <div className="mainContainer">
           <div className="scroll-box">
             <div className="container">
@@ -223,9 +204,9 @@ function App() {
       <Reg onUserAdd={onUserAdd} />
       <div>
         <div className="container2">
-          <div className="item">No.</div>
-          <div className="item">이름</div>
-          <div className="item">생일</div>
+          <div className="itemHeader">No.</div>
+          <div className="itemHeader">이름</div>
+          <div className="itemHeader">생일</div>
         </div>
         {user.map((u) => (
           <Users key={u.id} {...u} />
