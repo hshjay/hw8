@@ -163,7 +163,7 @@ function App() {
       <h2 className="section-title">입력</h2>
       <Editor onClickAdd={onClickAdd} user={user}></Editor>
       <div>
-          <div className="mainContainer">
+        <div className="mainContainer">
           <div className="scroll-box">
             <div className="container">
               <div className="header">No.</div>
