@@ -101,6 +101,7 @@ export default function Editor(props: Props) {
           </select>
           <input type="date" name="dt" id="dt" value={dt} onChange={onChangeDt} className="input-date"/>
           {/* <label htmlFor="h8">키</label> */}
+          <div className="break"></div>
       <input
         type="text"
         id="h8"
@@ -117,6 +118,8 @@ export default function Editor(props: Props) {
               placeholder="몸무게"
               className="input-text"
           />
+          <div className="break"></div>
+
           <input
               type="text"
               id="rmk"

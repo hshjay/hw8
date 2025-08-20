@@ -1,5 +1,6 @@
 .editor-form {
-  display: flex;
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 1rem;
   padding: 1rem;
   background-color: white;
@@ -25,7 +26,7 @@
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  width: 100px;
+  /*width: 100px;*/
 }
 
 .submit-button {
@@ -41,3 +42,8 @@
 .submit-button:hover {
   background-color: #0056b3;
 }
+/* 줄바꿈 전용 요소 */
+.break {
+        grid-column: 1 / -1;
+    gap:0;
+    }
