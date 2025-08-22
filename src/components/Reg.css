@@ -22,7 +22,7 @@
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   transition: border-color 0.3s ease;
 }
 
@@ -37,7 +37,7 @@
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

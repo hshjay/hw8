@@ -8,9 +8,10 @@
     border-right: 1px solid #e5e5e5;
     transition: all 0.2s ease;
     /*min-width: 80px;*/
-    text-align: left;
+    /*text-align: left;*/
     flex-shrink: 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 /*.item:first-child {*/
@@ -33,10 +34,9 @@
 /*    width: 120px;*/
 /*}*/
 
-/*.item.remark {*/
-/*    min-width: 250px;*/
-/*    flex-grow: 1;*/
-/*}*/
+.item.remark {
+    text-align: left;
+}
 
 .unit {
     color: #666;
