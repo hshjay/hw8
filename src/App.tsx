@@ -4,7 +4,7 @@ import Items from "./components/Items";
 import Reg from "./components/Reg";
 import Users from "./components/Users";
 import ReadSheet from "./components/ReadSheet";
-import './App.css';
+import "./App.css";
 
 interface Store {
   id: number;
@@ -172,11 +172,20 @@ function App() {
               <div className="header">키</div>
               <div className="header">몸무게</div>
               <div className="header">비고</div>
+              <div className="header">생후</div>
 
               {store
                 .filter((item) => item.userId == 0)
                 .map((item) => (
-                  <Items key={item.id} {...item} />
+                  <Items
+                    key={item.id}
+                    {...item}
+                    sh={(
+                      (new Date(item.dt).getTime() -
+                        new Date(user[0].birth).getTime()) /
+                      (1000 * 24 * 60 * 60)
+                    ).toString()}
+                  />
                 ))}
             </div>
           </div>
@@ -188,11 +197,20 @@ function App() {
               <div className="header">키</div>
               <div className="header">몸무게</div>
               <div className="header">비고</div>
+              <div className="header">생후</div>
 
               {store
                 .filter((item) => item.userId == 1)
                 .map((item) => (
-                  <Items key={item.id} {...item} />
+                  <Items
+                    key={item.id}
+                    {...item}
+                    sh={(
+                      (new Date(item.dt).getTime() -
+                        new Date(user[1].birth).getTime()) /
+                      (1000 * 24 * 60 * 60)
+                    ).toString()}
+                  />
                 ))}
             </div>
           </div>
