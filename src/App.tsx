@@ -4,6 +4,7 @@ import Items from "./components/Items";
 import Reg from "./components/Reg";
 import Users from "./components/Users";
 import ReadSheet from "./components/ReadSheet";
+import LineChart from "./LineChart";
 import "./App.css";
 
 interface Store {
@@ -159,6 +160,18 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+        <h1>grp</h1>
+        <LineChart
+          dataList={store}
+          birthA={
+            // new Date(user[0].birth).getTime(),
+            // new Date(user[1].birth).getTime(),
+            new Date(user[0].birth).getTime()
+          }
+          birthB={new Date(user[1].birth).getTime()}
+        />
+      </div>
       <h1 className="app-title">hw8</h1>
       <h2 className="section-title">입력</h2>
       <Editor onClickAdd={onClickAdd} user={user}></Editor>
