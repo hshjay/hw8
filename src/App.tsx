@@ -156,21 +156,23 @@ function App() {
 
   useEffect(() => {
     // console.log(...store);
-  }, [store]);
+  }, [store, user]);
 
   return (
     <div className="App">
       <div>
         <h1>grp</h1>
-        <LineChart
-          dataList={store}
-          birthA={
-            // new Date(user[0].birth).getTime(),
-            // new Date(user[1].birth).getTime(),
-            new Date(user[0].birth).getTime()
-          }
-          birthB={new Date(user[1].birth).getTime()}
-        />
+        {user && user.length > 0 ? (
+          <LineChart
+            dataList={store}
+            birthA={
+              // new Date(user[0].birth).getTime(),
+              // new Date(user[1].birth).getTime(),
+              new Date(user[0].birth).getTime()
+            }
+            birthB={new Date(user[1].birth).getTime()}
+          />
+        ) : null}
       </div>
       <h1 className="app-title">hw8</h1>
       <h2 className="section-title">입력</h2>
