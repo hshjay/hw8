@@ -161,7 +161,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <h1>grp</h1>
+        <h1>h8 grp</h1>
         {user && user.length > 0 ? (
           <LineChart
             dataList={store}
@@ -171,6 +171,22 @@ function App() {
               new Date(user[0].birth).getTime()
             }
             birthB={new Date(user[1].birth).getTime()}
+            gu={"h8"}
+          />
+        ) : null}
+      </div>
+      <div>
+        <h1>w8 grp</h1>
+        {user && user.length > 0 ? (
+          <LineChart
+            dataList={store}
+            birthA={
+              // new Date(user[0].birth).getTime(),
+              // new Date(user[1].birth).getTime(),
+              new Date(user[0].birth).getTime()
+            }
+            birthB={new Date(user[1].birth).getTime()}
+            gu={"w8"}
           />
         ) : null}
       </div>
